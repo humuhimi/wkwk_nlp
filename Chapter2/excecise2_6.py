@@ -1,0 +1,25 @@
+"""
+15. 末尾のN行を出力
+自然数Nをコマンドライン引数などの手段で受け取り，入力のうち末尾のN行だけを表示せよ．確認にはtailコマンドを用いよ．
+"""
+
+N = int(input('出力したい行数を入力してください:'))
+
+path = "col1_2ans.txt"
+lines = []
+rline = []
+
+with open(path,'r') as f:
+    for line in f:
+        lines.append(line)
+    for line_r in reversed(lines):
+        if N > 0:
+            rline.append(line_r)
+        else:
+            rline.reverse()
+            break  
+
+        N -= 1
+
+for r in rline:
+    print(r)

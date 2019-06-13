@@ -1,0 +1,7 @@
+son.load is used to load json data from file.
+ json.loads is used to load json string. 
+Other answers are right, 
+json.load() is used to read json from a file and json.loads() to read json from a string
+元の読み込みファイルのものによって使い分けるべき
+
+
