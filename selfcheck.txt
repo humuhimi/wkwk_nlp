@@ -1,0 +1,7 @@
+def make_str_bigram(text,n=2):
+n=2があるからmake_str_ngramのほうがいい
+関数はどちらにしろreturn にしたほうがいい。
+
+結構他の人の回答とみていいてlist.appendが好きなのがわかる。 
+list += ~のパターンもいっぱい使って行っていいと思う。
+

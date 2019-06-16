@@ -22,7 +22,7 @@ def make_str_bigram(text,n=2):
 
 def make_word_bigram(text,n=2):
 
-    text = text.split(' ')
+    text = text.split(' ') # 外に出してsplitしたらわざわざmake_word_bigramを作る必要がないよね
     iterr = itertools.combinations(text,n)
     for i in iterr:
         print(i)

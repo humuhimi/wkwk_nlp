@@ -11,21 +11,22 @@ import random
 
 def rand_ward_mixer(text):
    
-    text = text.split(' ')
+    samp = text.split(' ')
     strin = []
     for s in samp:
         # sが4文字以上あるかどうかで並び替えるか放置かを洗濯
-        if len(s) > 4:
+        if len(s) >= 4:
             # 並び替え
-            s = list(s) # リストに入れる
-            new_s = random.sample(s[1:-1],k=len(s[1:-1])) # 先頭と末尾以外をランダムサンプリング
-            del s[1:-1] # 中間部分を削除してランダムサンプルしたものと代入を使って入れ替える
-            s[1:-1] += new_s
+            chr_list = list(s[1:-1]) # リストに入れる
+            # new_s = random.sample(s[1:-1],k=len(s[1:-1])) # 先頭と末尾以外をランダムサンプリング
+            # del s[1:-1] # 中間部分を削除してランダムサンプルしたものと代入を使って入れ替える
+            random.shuffle(chr_list)
+            # s[1:-1] += new_s
+            strin.append(s[0] + ''.join(chr_list) + s[-1])
         else:
             # 並び替えない
-            pass
+            strin.append(s)
             # 単語をそれぞれstrinに追加
-        strin.append(''.join(s))
 # 単語かんにスペースを入れる
     string = ' '.join(strin)
     return string
@@ -36,7 +37,7 @@ def rand_ward_mixer(text):
 if __name__ == '__main__':
 
     text = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."
-    print(rand_ward_spliter(text))
+    print(rand_ward_mixer(text))
 
 
 
