@@ -9,6 +9,22 @@
 4.最後分割数以下のファイルを全て書き出す。(残ったリストを全て書き出す)
 """
 
+# import math
+
+# with open(path) as file:
+#     lines = data.readlines()
+
+# count = len(lines)
+# unit = math.ceil(count / n)
+
+# for i ,offset in enumerate(range(0,count,unit),1):
+#     with open('child_{02d}.txt'.format(i),mode='w') as f:
+#         for line in lines[offset:offset + unit]:
+#             f.write(line)
+
+
+
+
 def make_list(path):
         path_i = path
         with open(path_i,'r') as I:
@@ -19,6 +35,8 @@ def make_list(path):
 # ファイル数と分割行数を決める
 def decide_size():
     N = int(input('分割ファイル数を入力してください:'))
+
+
     
 
 

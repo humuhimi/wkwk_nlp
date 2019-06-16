@@ -23,3 +23,11 @@ with open(path,'r') as f:
 
 for r in rline:
     print(r)
+
+"""
+if n > 0:
+    with open(path) as f:
+        lines = f.readlines() # これを使うべきやった。
+    for line in lines[-n:]:
+        print(line.rstrip())
+"""

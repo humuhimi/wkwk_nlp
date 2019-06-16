@@ -20,7 +20,7 @@ with open(path_w1,'r') as w1:
 
 # print(w1_line[:]+w2_line[:])
 
-for i in range(len(w1_line) - 1):
+for i in range(len(w1_line)):
     w1_line[i] += w2_line[i]
     w1_line[i] = re.sub(r'\n','\t',w1_line[i],1)
 

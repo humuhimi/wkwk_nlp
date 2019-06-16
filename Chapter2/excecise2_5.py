@@ -5,7 +5,7 @@
 
 N = int(input('出力したい行数を入力してください:'))
 
-path = "col1_2ans.txt"
+path = "hightemp.txt"
 
 with open(path,'r') as f:
     for line in f:
