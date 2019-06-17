@@ -41,7 +41,7 @@ def mk_category_pt():
     return prog,prog2
 
 
-prog,prog2 = make_patern()
+prog,prog2 = mk_category_pt()
 
 with open(path,'r') as article:
     for a in article:
