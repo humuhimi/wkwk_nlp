@@ -1,3 +1,9 @@
+"""
+32. 動詞の原形
+動詞の原形をすべて抽出せよ．
+"""
+
+
 import MeCab
 from pprint import pprint
 from n30_execise import maping_morphology

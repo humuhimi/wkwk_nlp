@@ -22,11 +22,11 @@ def extract_verb_type_all(analyzed_list,type="Surface"):
     '''
     動詞の表層形をすべて抽出する
     '''
-    verb_surface_list = []
+    verb_type_list = []
 
-    for mapped_orphology in analyzed_list:
-        if mapped_orphology['pos'] == '動詞':
-            verb_surface_list.append(mapped_orphology[type])
+    for mapped_morphology in analyzed_list:
+        if mapped_morphology['pos'] == '動詞':
+            verb_type_list.append(mapped_morphology[type])
     
     return verb_surface_list
 
@@ -42,6 +42,6 @@ if __name__ == '__main__':
     # 形態解析後のマッピングリスト
     analyzed_list = maping_morphology(mecab_text)
     # 動詞の表層を全てリスト格納
-    verb_list = extract_verb_surface_all(analyzed_list)  
+    verb_list = extract_verb_type_all(analyzed_list)  
 
     pprint(verb_list)
