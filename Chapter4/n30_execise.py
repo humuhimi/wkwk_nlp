@@ -2,24 +2,14 @@
 30. 形態素解析結果の読み込み
 形態素解析結果（neko.txt.mecab）を読み込むプログラムを実装せよ．
 ただし，
-=====
-各形態素は表層形（surface），
-基本形（base），
-品詞（pos），
-品詞細分類1（pos1）
-====
+各形態素は表層形（surface），基本形（base），品詞（pos），品詞細分類1（pos1）
 をキーとするマッピング型に格納し，
 1文を形態素（マッピング型）のリストとして表現せよ．
 第4章の残りの問題では，ここで作ったプログラムを活用せよ．
-
-表層形\t品詞,品詞細分類1,品詞細分類2,品詞細分類3,活用型,活用形,原形,読み,発音
-
-表層形,品詞,品詞細分類1
-
-当たる、ない:基本形
 """
 
 import MeCab
+from pprint import pprint
 
 #ファイルのパス用
 text_from = "neko.txt"
@@ -42,7 +32,6 @@ def text_toMeCab(text_from,text_to):
     '''
     # メカブタグ
     mecab_tag = MeCab.Tagger('')
-
     with open(text_from,'r') as origin,\
          open(text_to,'w') as as_mecab:
         tmp_text = origin.read()
@@ -66,24 +55,33 @@ def maping_morphology(mecab_file):
     temporary_list,tmp_list:list
         一時変換用リスト
     morphological_dict:dict
-       形態素解析結果のマップ 
+       一行ごとの形態素解析結果のマップ型
+    result_mapping_list:list
+        morphological_dictの全体リスト
     Returns
     --------
-    morphological_dict:mapping dictionary
+    result_mapping_list:mapping dictionary list
     '''
-    raw_list = mecab_file.split('\n')
-    morphological_dict = {}
+    #先頭に改行があるので削除する
+    mecab_file = mecab_file.lstrip('\n')
+    # 一行ずつに分割
+    raw_list = mecab_file.splitlines()
+    result_mapping_list = []
 
     for temporary_list in raw_list:
-        tmp_list = temporary_list.split('\t')
-        morphological_dict.update({'surface':tmp_list[0],
-                                    'base':tmp_list[2],
-                                    'pos':tmp_list[3],
-                                    'pos1':tmp_list[-3]})
-    return morphological_dict
+        tmp_list = temporary_list.replace('\t',',').split(',')
+        # '最終行EOS直前まで読み込む
+        if tmp_list[0] == 'EOS':
+            break
+        else:
+            morphological_dict = {'Surface':tmp_list[0],'base':tmp_list[1],'pos':tmp_list[2],'pos1':tmp_list[-3]}
+            result_mapping_list.append(morphological_dict)
+    
+    
+    return result_mapping_list
 
         
 mecab_text = text_toMeCab(text_from,text_to)
 result = maping_morphology(mecab_text)
-print(result)
+pprint(result)
 
