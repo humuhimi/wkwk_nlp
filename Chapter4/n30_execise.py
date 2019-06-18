@@ -11,10 +11,6 @@
 import MeCab
 from pprint import pprint
 
-#ファイルのパス用
-text_from = "neko.txt"
-text_to = "neko.txt.mecab"
-
 def text_toMeCab(text_from,text_to):
     '''
     convert mecab morphological analisis result and  write it to text
@@ -74,14 +70,20 @@ def maping_morphology(mecab_file):
         if tmp_list[0] == 'EOS':
             break
         else:
-            morphological_dict = {'Surface':tmp_list[0],'base':tmp_list[1],'pos':tmp_list[2],'pos1':tmp_list[-3]}
+            morphological_dict = {'Surface':tmp_list[0],'base':tmp_list[-3],'pos':tmp_list[1],'pos1':tmp_list[2]}
             result_mapping_list.append(morphological_dict)
     
     
     return result_mapping_list
 
+
+if __name__ == "__main__":
         
-mecab_text = text_toMeCab(text_from,text_to)
-result = maping_morphology(mecab_text)
-pprint(result)
+    #ファイルのパス用
+    text_from = "neko.txt"
+    text_to = "neko.txt.mecab"
+
+    mecab_text = text_toMeCab(text_from,text_to)
+    result = maping_morphology(mecab_text)
+    pprint(result)
 
