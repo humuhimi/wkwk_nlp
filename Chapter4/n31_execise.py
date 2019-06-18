@@ -28,7 +28,7 @@ def extract_verb_type_all(analyzed_list,type="Surface"):
         if mapped_morphology['pos'] == '動詞':
             verb_type_list.append(mapped_morphology[type])
     
-    return verb_surface_list
+    return verb_type_list
 
 
 if __name__ == '__main__':

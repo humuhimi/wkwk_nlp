@@ -43,5 +43,5 @@ if __name__ == "__main__":
     analyzed_list = maping_morphology(mecab_text)
     # サ変名詞の名詞を全てリスト格納
     nouns_list =  extract_pos_pos1_all(analyzed_list,"名詞","サ変接続")
-    pprint(nouns_list)
+    print(nouns_list)
 
