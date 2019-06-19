@@ -16,8 +16,21 @@ import pandas as pd
 
 #  TODO:freq_count　出現頻度の順序化
 def freq_to_order(freq_count):
-    p
 
+    freq_count = list(freq_count)
+    uniq_freq = list(set(freq_count))
+    uniq_freq.sort(reverse=True)
+
+    freq_order_list = []
+
+    for index,_uniq in enumerate(uniq_freq):
+        for _frequency in freq_count:
+            if _uniq == _frequency:
+                freq_order_list.append(int(index+1))
+            else:
+                continue
+    
+    return freq_order_list
 
 
 # TODO:順序と出現頻度共に対数化する
@@ -45,3 +58,5 @@ if __name__ == "__main__":
     # create_words_frequency_graph(freq_value,freq_count,graph='hist',title="出現頻度の高い単語のヒストグラム",xlabel="出現頻度",ylabel="出現頻度をとる単語の種類数")
     # HACK:イメージとしてデータがある場所の上に値が表示されるようにしたい。
 
+
+    
