@@ -1,29 +1,17 @@
+"""
+38. ヒストグラム
+単語の出現頻度のヒストグラム（横軸に出現頻度，縦軸に出現頻度をとる単語の種類数を棒グラフで表したもの）を描け．
+"""
+
 import MeCab
 from pprint import pprint
 import collections
 from n30_execise import maping_morphology
 from n31_execise import load_mecab_file
 from n36_execise import extract_type_all,extract_frequent_words
+from n37_execise import create_words_frequency_graph
 import matplotlib.pyplot as plt
 import pandas as pd
-
-# グラフの種類、出現単語、出現回数
-
-def create_words_frequency_graph(x,y,graph='bar',title="出現頻度の高い単語グラフ",xlabel="出現単語",ylabel="出現頻度"):
-    '''
-    とりあえず、bar　plot で出力する
-    日本語フォント
-    '''
-    igfont = {'family':'IPAexGothic'}
-    plt.rc('font',**igfont)
-
-    data = pd.Series(y,index=x)
-    data.plot(kind=graph,bins=100,label=y)
-
-    plt.title(title,**igfont)
-    plt.xlabel(xlabel,**igfont)
-    plt.ylabel(ylabel,**igfont)
-    plt.show()
 
 
 if __name__ == "__main__":
@@ -39,8 +27,8 @@ if __name__ == "__main__":
     # 表層形だけを取り出したリストを作成する
     surface_list = extract_type_all(analyzed_list)
     # 出現頻度の高い値とその回数を取り出す
-    freq_value,freq_count = extract_frequent_words(surface_list,N=10)
-    print(freq_value,freq_count)
+    freq_value,freq_count = extract_frequent_words(surface_list)
     # グラフ作成
-    create_words_frequency_graph(freq_value,freq_count)
-
+    # FIXME:hist グラムが雑すぎる　とりあえずこれで一回通す
+    create_words_frequency_graph(freq_value,freq_count,graph='hist',title="出現頻度の高い単語のヒストグラム",xlabel="出現頻度",ylabel="出現頻度をとる単語の種類数")
+    # HACK:イメージとしてデータがある場所の上に値が表示されるようにしたい。
