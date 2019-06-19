@@ -23,3 +23,19 @@ def extract_pos_type_all(analyzed_list,pos="動詞",type="Surface"):
             pos_type_list.append(mapped_morphology[type])
     
     return pos_type_list
+
+
+# 39 hint
+
+len(set(freq_count[0]))
+import collections
+c = collections.Counter(freq_count[0])
+freq_count = freq_count.split(',')
+c = collections.Counter(freq_count)
+
+Series_c = pd.Series(c.keys(),index=np.arange(len(c)))
+series_c = pd.Series(c.keys(),index=np.arange(len(c)))
+# cのkeyをそれぞれ格納したい。
+Series_c.index
+
+
