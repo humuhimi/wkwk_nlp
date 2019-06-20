@@ -30,5 +30,5 @@ if __name__ == "__main__":
     freq_value,freq_count = extract_frequent_words(surface_list)
     # グラフ作成
     # FIXME:hist グラムが雑すぎる　とりあえずこれで一回通す
-    create_words_frequency_graph(freq_value,freq_count,graph='hist',title="出現頻度の高い単語のヒストグラム",xlabel="出現頻度",ylabel="出現頻度をとる単語の種類数")
+    create_words_frequency_graph(freq_value,freq_count,graph='hist',title="出現頻度の高い単語のヒストグラム",xlabel="出現頻度",ylabel="出現頻度をとる単語の種類数",y_lim=[0,9000])
     # HACK:イメージとしてデータがある場所の上に値が表示されるようにしたい。

@@ -33,12 +33,6 @@ def freq_to_order(freq_count):
     return freq_order_list
 
 
-# TODO:順序と出現頻度共に対数化する
-
-# TODO:グラフ作成 その他弊害
-
-
-
 if __name__ == "__main__":
     
     # ファイルパス
@@ -54,8 +48,10 @@ if __name__ == "__main__":
     # 出現頻度の高い値とその回数を取り出す
     freq_value,freq_count = extract_frequent_words(surface_list)
     print(freq_count)
+    freq_order_list = freq_to_order(freq_count)
+    print(freq_order_list)
     # グラフ作成
-    # create_words_frequency_graph(freq_value,freq_count,graph='hist',title="出現頻度の高い単語のヒストグラム",xlabel="出現頻度",ylabel="出現頻度をとる単語の種類数")
+    create_words_frequency_graph(freq_order_list,freq_count,graph='line',title="出現頻度順序と出現頻度の両対数グラフ(Zipfの法則)",xlabel="出現頻度の順序",ylabel="出現頻度",log_log=True,_grid=True)
     # HACK:イメージとしてデータがある場所の上に値が表示されるようにしたい。
 
 

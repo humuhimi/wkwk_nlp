@@ -9,20 +9,23 @@ import pandas as pd
 
 # グラフの種類、出現単語、出現回数
 
-def create_words_frequency_graph(x,y,graph='bar',title="出現頻度の高い単語グラフ",xlabel="出現単語",ylabel="出現頻度"):
+def create_words_frequency_graph(x,y,graph='bar',title="",xlabel="",ylabel="",y_lim=[0,10000],_grid=None,log_log=False):
     '''
     とりあえず、bar　plot で出力する
     日本語フォント
+    FIXME:histogramの時だけbins=bins_が必要?分岐する必要あり(default bins_=False)
+
     '''
     igfont = {'family':'IPAexGothic'}
     plt.rc('font',**igfont)
 
     data = pd.Series(y,index=x)
-    data.plot(kind=graph,bins=100,label=y)
-
+    data.plot(kind=graph,label=y,grid=_grid,loglog=log_log)
     plt.title(title,**igfont)
     plt.xlabel(xlabel,**igfont)
     plt.ylabel(ylabel,**igfont)
+    plt.ylim(y_lim)
+
     plt.show()
 
 
@@ -42,5 +45,5 @@ if __name__ == "__main__":
     freq_value,freq_count = extract_frequent_words(surface_list,N=10)
     print(freq_value,freq_count)
     # グラフ作成
-    create_words_frequency_graph(freq_value,freq_count)
+    create_words_frequency_graph(freq_value,freq_count,title="出現頻度の高い単語グラフ",xlabel="出現単語",ylabel="出現頻度",y_lim=[0,9000])
 
