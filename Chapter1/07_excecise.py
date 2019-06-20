@@ -4,11 +4,22 @@
 """
 
 
+def print_arg(x, y, z):
+    """
+    3つの引数をもとに一つの文字列を返す
 
-def print_arg(x=12,y="気温",z=22.4):
-    print("{0}時の{1}は{2}".format(x,y,z))
+    Parameters:
+    ---------------
+    x: int
+    y: str
+    z: float
+    """
+    print("{0}時の{1}は{2}".format(x, y, z))
     # return "{0}時の{1}は{2}".format(x,y,z)もできる
 
 
-if __name__ == '__main__':
-    print_arg()
+if __name__ == "__main__":
+    x = 12
+    y = "気温"
+    z = 22.4
+    print_arg(x, y, z)

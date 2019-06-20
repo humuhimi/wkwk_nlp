@@ -6,14 +6,14 @@ import itertools
 
 # bi-gramを作る
 def make_str_bigram(text,n=2):
-    
+
     text = list(text)
     iterr = itertools.combinations(text,n)
     lists = []
     for i in iterr:
         lists.append(i)
     return lists
-    
+
 
 def ck_groups(x,y): # 集合をチェックする
     union = X.union(Y) # 和集合
@@ -33,16 +33,15 @@ def find_se(x,y):
             print('seはYに含まれる')
     else:
         print('seは含まれない。')
-        
+
 
 
 text1 = "paraparaparadise"
 text2 = "paragraph"
 
-X = set(make_str_bigram(text1,2))
-Y = set(make_str_bigram(text2,2))
+input_X = set(make_str_bigram(text1,2))
+input_Y = set(make_str_bigram(text2,2))
 
-ck_groups(X,Y)
+ck_groups(input_X,input_Y)
 
-find_se(X,Y)
-
+find_se(input_X,input_Y)
