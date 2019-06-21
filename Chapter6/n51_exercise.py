@@ -33,23 +33,46 @@ def sentence_ToWords(tokens):
 
 # 50個ずつまとめる+最後に空行 |別ファイルに書きこむ
 
-def fill50_words(word_list,word_len):
+def write_50word_ToText(word_list,word_len):
+    '''
+    新規ファイルに50文字づつ単語を書きこむ。
+    PArameter
+    ========
+    PATH:str
+        ファイルのパス
+    path:str
+        新規生成されるファイルのパス(末尾には何個目までのファイルが入ってるかが入る)
+    start:int
+    end:int
+        50区切りのために使用(単語のインデックス)
+    re_format:
+         単語以外の文字列を削除するためのもの
+    '''
     PATH = "words.txt"
     start = 0
-    end = 50
-    
+    end = 49
+
+    re_format = re.compile(r"""
+    \(| # (
+    \)| # )
+    \.| # .
+    , |# ,
+    \"| # "
+    \\n{2} # 空白2連続
+    """,re.VERBOSE)
+
     while word_len > end:
         path = PATH + str(end)
         with open(path,'w') as file:
             for word in word_list[start:end]:
+                # maxで4回単語フォーマット化処理すると仮定
+                word = re_format.sub('',word,4)
                 file.write(word+'\n')
             else:
                 file.write('\n')
                 start = end
                 end += 50
-            
-        
-            
+                      
 
 if __name__ == "__main__":
 
@@ -64,9 +87,8 @@ if __name__ == "__main__":
     # とりあえず一区切りだけ入れる
     samp_text,length = sentence_ToWords(sent_token)
     # samp を区切る
-    print(samp_text)
-    print(length)
-    fill50_words(samp_text,length)
+
+    write_50word_ToText(samp_text,length)
 
 
     
