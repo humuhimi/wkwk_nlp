@@ -7,7 +7,6 @@ from pprint import pprint
 from n50_exercise import load_text,find_specialchar_index,sent_tokenize_Plus
 import re
 
-
 # split by 空白
 def sentence_ToWords(tokens):
     '''
