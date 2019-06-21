@@ -15,7 +15,7 @@ def make_str_bigram(text,n=2):
     return lists
     
 
-def ck_groups(x,y): # 集合をチェックする
+def ck_groups(X,Y): # 集合をチェックする
     union = X.union(Y) # 和集合
     diff = X.difference(Y) # 差集合
     product = X.intersection(Y) # 積集合
@@ -24,7 +24,7 @@ def ck_groups(x,y): # 集合をチェックする
     return union,diff,product
 
 
-def find_se(x,y):
+def find_se(X,Y):
 
     if 'se' in X or 'se' in Y:
         if 'se' in X:
@@ -39,10 +39,10 @@ def find_se(x,y):
 text1 = "paraparaparadise"
 text2 = "paragraph"
 
-X = set(make_str_bigram(text1,2))
-Y = set(make_str_bigram(text2,2))
+input_X = set(make_str_bigram(text1,2))
+input_Y = set(make_str_bigram(text2,2))
 
-ck_groups(X,Y)
+ck_groups(input_X,input_Y)
 
-find_se(X,Y)
+find_se(input_X,input_Y)
 
