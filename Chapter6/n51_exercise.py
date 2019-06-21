@@ -47,6 +47,9 @@ def write_50word_ToText(word_list,word_len):
         50区切りのために使用(単語のインデックス)
     re_format:
          単語以外の文字列を削除するためのもの
+    Return
+    ========  
+    None
     '''
     PATH = "words.txt"
     start = 0
