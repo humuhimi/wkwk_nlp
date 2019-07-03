@@ -2,18 +2,6 @@
 11. タブをスペースに置換
 タブ1文字につきスペース1文字に置換せよ．確認にはsedコマンド，trコマンド，もしくはexpandコマンドを用いよ．
 """
-# import re
-
-# path = "hightemp.txt"
-# lines = ''
-# with open(path) as f:
-#     for s_line in f:
-#         s_line = re.sub(r'\t',' ',s_line,count=3)
-#         lines += s_line
-
-#     print(lines)
-
-
 filepath = "hightemp.txt"
 lines = ""
 with open(filepath) as f:
