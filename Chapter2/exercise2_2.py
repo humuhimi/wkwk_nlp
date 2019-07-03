@@ -14,12 +14,11 @@
 #     print(lines)
 
 
-path = "hightemp.txt"
-lines = ''
-with open(path) as f:
+filepath = "hightemp.txt"
+lines = ""
+with open(filepath) as f:
     for s_line in f:
-        s_line =  s_line.replace('\t',' ',3) # 再代入してあげないといけない　変換するだけで別のオブジェクト
+        s_line = s_line.replace("\t", " ", 3)  # 再代入してあげないといけない　変換するだけで別のオブジェクト
         lines += s_line
 
     print(lines)
-
