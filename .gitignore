@@ -1,1 +1,8 @@
-*__pycache__
+__pycache__
+sakila_data.sql
+hightemp.txt 
+Chapter3/jawiki-country.json
+Chapter4/mecab-ipadic-neologd
+Chapter4/neko.txt
+Chapter4/neko.txt.mecab
+Chapter6/nlp.txt
