@@ -3,13 +3,13 @@
 自然数Nをコマンドライン引数などの手段で受け取り，入力のうち末尾のN行だけを表示せよ．確認にはtailコマンドを用いよ．
 """
 
-N = int(input('出力したい行数を入力してください:'))
+N = int(input("出力したい行数を入力してください:"))
 
-path = "col1_2ans.txt"
+filepath = "col1_2ans.txt"
 lines = []
 rline = []
 
-with open(path,'r') as f:
+with open(filepath, "r") as f:
     for line in f:
         lines.append(line)
     for line_r in reversed(lines):
@@ -17,7 +17,7 @@ with open(path,'r') as f:
             rline.append(line_r)
         else:
             rline.reverse()
-            break  
+            break
 
         N -= 1
 

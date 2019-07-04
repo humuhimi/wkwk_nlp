@@ -1,2 +1,0 @@
-sftp.printDebugLogaaa
-sftp.printDebugLogaaa

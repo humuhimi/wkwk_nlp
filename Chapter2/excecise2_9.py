@@ -15,19 +15,19 @@
 # lines.sort( key=lambda line: float(line.split('\t')[2]),reverse=True)
 
 
-
-lists =  make_list(path_I)
+# TODO: どこでmake_listを定義しているか聞く
+lists = make_list(path_I)
 sort_target = []
 
 for line in lists:
-        line = line.split('\t')
-        sort_target.append(line[2])
-        print(line[2])
+    line = line.split("\t")
+    sort_target.append(line[2])
+    print(line[2])
 else:
     print(sort_target)
 
-if __name__ == '__main__':
-    
+if __name__ == "__main__":
+
     path_I = "hightemp.txt"
     lists = []
     reverse_list(path_I)
