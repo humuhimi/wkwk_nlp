@@ -8,8 +8,6 @@ cd stanford-corenlp-full-2018-10-05
 mv nlp.txt.xml Chapter6/
 """
 
-
-import pprint
 import xml.etree.ElementTree as ET
 import re
 
