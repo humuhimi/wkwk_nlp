@@ -4,7 +4,6 @@ Stanford Core NLPの解析結果XMLを読み込み，単語，レンマ，品詞
 """
 
 import xml.etree.ElementTree as ET
-import re
 
 # ファイルを読み込む
 tree = ET.parse('nlp.txt.xml')
