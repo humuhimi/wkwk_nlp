@@ -9,17 +9,12 @@ import re
 # ファイルを読み込む
 tree = ET.parse('nlp.txt.xml')
 root = tree.getroot()
-prog = re.compile(r'^\n')
 
-output_list = []
-tmp_list = []
 
-for child in root.iter():
-    if child.tag == 'word':
-        word = child.text
-    if child.tag == 'lemma':
-        lemma = child.text
-    if child.tag == 'pos':
-        pos = child.text
-        
-    print('\t'.join([word,lemma,pos]))
+for sentence in root.findall('document/sentences/'):
+    for token in sentence.findall('tokens/'):
+        print('単語\tレンマ\t品詞')
+        word = token.find('word').text
+        lemma = token.find('lemma').text
+        POS = token.find('POS').text
+        print('\t'.join([word,lemma,POS]))
